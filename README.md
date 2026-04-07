@@ -3,66 +3,75 @@
 ## Proposal Report
 
 ### 動機與目標
-大多數音樂應用程式將「聽音樂」視為靜態行為——使用者選好播放清單後，音樂便持續播放。然而在現實生活中，人的情緒往往是多層次且不斷變化的，一個人可能同時感到平靜、憂鬱與放鬆，且這些狀態會在短時間內改變。
+In many music applications, listening is treated as a relatively static activity—users select a playlist, and the system continues playing songs without adapting to changes in the user’s state. However, in real life, human emotions are dynamic, multi-layered, and constantly evolving. A person may feel calm, sad, and relaxed at the same time, and these emotions can shift significantly within a short period.
 
-本專題的出發點在於：音樂推薦應該回應使用者當下的情緒，而非依賴固定播放清單。因此，本系統以「你現在感覺如何？」為核心，根據使用者輸入的情緒、活動與能量等級，動態推薦最適合的歌曲。
+Another challenge is that music recommendation is inherently subjective. Even if a system attempts to match a user’s mood, the recommended song may not always meet the user’s expectations. This creates a need for systems that can not only generate recommendations, but also adapt based on user feedback.
 
-當使用者情緒改變時，系統會重新計算並產生新的推薦結果，以維持推薦內容與當下狀態的一致性。
+This project is motivated by the idea that music recommendation should be responsive, adaptive, and interactive. Instead of asking “which playlist do you want?”, the system focuses on understanding “how you feel right now” and adjusting its suggestions accordingly.
+
+The goal of this project is to design a simple command-line (CLI) music recommendation system that dynamically adapts to the user’s mood, activity, and energy level. The system also incorporates basic feedback mechanisms (such as like/skip) to refine recommendations within a session.
+
+Through this project, I aim to explore how abstract human emotions can be transformed into computable values using data structures and algorithmic logic, while also handling the uncertainty and subjectivity of user preferences.
 
 ### 預期功能
-- 使用者輸入當前情緒（可為單一或多個）
-- 使用者選擇當前活動（如：studying、resting 等）
-- 使用者輸入能量程度（1–5）
-- 系統讀取並評估歌曲資料
-- 根據匹配程度為每首歌曲計算分數（scoring algorithm)
-- 推薦最適合的歌曲
-- 顯示前幾名推薦結果（ranking）
-- 使用者可選擇喜歡（like）或跳過（skip）
-- 簡單記錄推薦歷史
-- 系統可在一定互動後提示使用者更新當前情緒
-- 當使用者情緒改變時，系統會根據新的輸入重新產生推薦結果
+- User inputs current mood (single or multiple) 
+- User selects current activity (e.g., studying, resting)
+- User inputs energy level (1–5)
+- System reads and evaluates song data
+- Calculates a matching score for each song (scoring algorithm)
+- Recommends the most suitable songs
+- Displays top-ranked results (ranking)
+- User can like or skip songs
+- Maintains a simple recommendation history
+- System prompts the user to update their mood after some interactions
+- When the mood changes, the system regenerates recommendations accordingly
+
 
 ### 使用技術
-- 程式語言：Python 3
-- 介面：命令列介面（Command Line Interface, CLI）
-- 資料儲存：使用 JSON 檔案進行資料持久化（無需使用外部資料庫）
-- 標準函式庫：使用 Python 內建函式庫（如 json、random 等），不依賴外部套件
-- 程式設計方法：採用物件導向程式設計（OOP）與基本演算法設計（如線性搜尋與評分機制）
+- Programming Language: Python 3
+- Interface: Command Line Interface (CLI)
+- Data Storage: JSON files (for song data and user history, no external database required), as the system primarily relies on iterating through all songs for scoring rather than complex queries, making a lightweight structure sufficient for the project.
+- Libraries: Built-in Python libraries (e.g., `json`, `random`)
+- Programming Approach: Object-Oriented Programming (OOP) and basic algorithm design (linear search and scoring mechanism)
+
 
 ### 時程規劃
-- Week 7 — Proposal 
-  確立專題主題，完成 Proposal Report，並設計歌曲與使用者輸入的資料表示方式。
 
-- Week 8 — Foundation
-  建立 `Song` 類別，準備基本歌曲資料，並實作以 JSON 為基礎的資料讀取與儲存機制。
+- Week 7 — Proposal
+  Finalize the project idea, complete the proposal report, and design the data format for songs, user input, and recommendation history.
 
-- Week 9 — Core Engine
-  設計並實作評分機制，用於根據使用者的情緒、活動與能量程度來匹配歌曲。
+- Week 8 — Data and Structure Design
+  Implement the `Song` class, prepare an initial song dataset, and set up JSON-based data loading and saving.
 
-- Week 10 — Recommendation Flow  
-  實作完整的推薦流程，包括使用者輸入處理、分數計算、排序與結果顯示。
+- Week 9 — Recommendation Logic
+  Design and implement the weighted scoring algorithm for mood, activity, and energy matching. Test the logic with sample inputs.
+
+- Week 10 — Core User Flow 
+  Implement the main CLI flow, including user input, score calculation, ranking, and recommendation display.
 
 - Week 11 — Prototype
-  優化 CLI 互動流程，加入基本的 like/skip 回饋功能，並完成 Prototype Report。
+  Add like/skip feedback, recommendation history, and mood update prompts. Complete the prototype report.
 
-- Week 12 — Enhancements  
-  優化評分公式，並擴充歌曲資料庫以提升推薦多樣性。
+- Week 12 — Refinement 
+  Improve the scoring formula, expand the dataset, and refine the recommendation criteria.
 
-- Week 13 — History Function  
-  加入簡單的歷史紀錄功能，用於儲存過去的推薦結果與使用者回饋。
+- Week 13 — History and Adaptation 
+  Improve history handling and use user feedback to adjust recommendations within a session.
 
-- Week 14 — Polish  
-  進行系統測試與除錯，並改善輸出格式與程式結構。
+- Week 14 — Testing and Polish
+  Conduct end-to-end testing, fix bugs, and improve code structure and CLI output formatting.
 
-- Week 15 — Final Submission  
-  完成最終系統、撰寫 Final Report，並錄製與提交展示影片。
+- Week 15 — Final Submission 
+  Finalize the system, complete the final report, and record the demo video.
 
 ### 與課程的關聯
-在資料結構方面，系統主要使用 list 作為動態陣列來儲存歌曲資料，方便進行逐一存取與操作；此外，也可使用 dictionary（雜湊表）來建立活動與歌曲特徵之間的對應關係，以提升查詢效率。
-
-在演算法方面，專題的核心為加權評分演算法（weighted scoring algorithm), 其公式為 score = (mood_match × 3) + (activity_match × 2) + (energy_match × 1)，用於根據使用者的情緒、活動與能量程度評估每首歌曲的匹配程度。系統亦會使用線性搜尋（linear search）來遍歷歌曲資料，並透過排序（sorting）將歌曲依照分數進行排名，以找出最適合的推薦結果。
-
-這些資料結構與演算法的選擇，是為了有效地組織資料、處理使用者輸入，並將抽象的情緒轉換為可計算的數值，進而提升推薦結果的準確性與實用性。
+This project involves several fundamental data structures and algorithmic concepts, chosen based on how well they fit the problem.
+A **list** is used to store the song library, as the system evaluates each song sequentially during scoring. This makes iteration simple and efficient.
+A **dictionary (hash map)** may be used to map activities to song attributes, allowing efficient lookups without scanning the entire dataset.
+The core of the system is a **weighted scoring algorithm**: score = (mood_match × 3) + (activity_match × 2) + (energy_match × 1)
+This algorithm converts subjective user input (such as emotions) into numerical values that can be compared and ranked.
+The system also uses **linear search** to evaluate each song and **sorting** to rank songs by relevance, ensuring that the most suitable recommendations are selected.
+These choices allow the system to efficiently organize data, process user input, and generate meaningful recommendations.
 
 ## Prototype Report
 
