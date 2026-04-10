@@ -47,10 +47,10 @@ Through this project, I aim to explore how abstract human emotions can be transf
   Design and implement the weighted scoring algorithm for mood, activity, and energy matching. Test the logic with sample inputs.
 
 - Week 10 — Core User Flow 
-  Implement the main CLI flow, including user input, score calculation, ranking, and recommendation display.
+  Implement the main CLI flow, including user input, score calculation, ranking, and recommendation display. Add like/skip feedback.
 
 - Week 11 — Prototype
-  Add like/skip feedback, recommendation history, and mood update prompts. Complete the prototype report.
+  Add recommendation history, and mood update prompts. Complete the prototype report.
 
 - Week 12 — Refinement 
   Improve the scoring formula, expand the dataset, and refine the recommendation criteria.
@@ -66,12 +66,12 @@ Through this project, I aim to explore how abstract human emotions can be transf
 
 ### 與課程的關聯
 This project involves several fundamental data structures and algorithmic concepts, chosen based on how well they fit the problem.
-A **list** is used to store the song library, as the system evaluates each song sequentially during scoring. This makes iteration simple and efficient.
+A **list** is used to store the `song` library, as the system evaluates each song sequentially during scoring. Each `Song` object also encapsulates all of a song's attributes together, which reflects the OOP principle of keeping related data in one place.
 A **dictionary (hash map)** may be used to map activities to song attributes, allowing efficient lookups without scanning the entire dataset.
 The core of the system is a **weighted scoring algorithm**: score = (mood_match × 3) + (activity_match × 2) + (energy_match × 1)
 This algorithm converts subjective user input (such as emotions) into numerical values that can be compared and ranked.
 The system also uses **linear search** to evaluate each song and **sorting** to rank songs by relevance, ensuring that the most suitable recommendations are selected.
-These choices allow the system to efficiently organize data, process user input, and generate meaningful recommendations.
+These choices allow the system to efficiently organize data, process user input, and generate meaningful recommendations. Each session's recommendation results and user feedback are stored using a stack structure. The Last-In-First-Out (LIFO) behavior fits naturally with the concept of history
 
 ### Evaluation of the System
 
