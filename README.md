@@ -3,7 +3,7 @@
 ## Proposal Report
 
 ### 動機與目標
-In many music applications, listening is treated as a relatively static activity—users select a playlist, and the system continues playing songs without adapting to changes in the user’s state. However, in real life, human emotions are dynamic, multi-layered, and constantly evolving. A person may feel calm, sad, and relaxed at the same time, and these emotions can shift significantly within a short period.
+In many music applications, listening is treated as a relatively static activity—users select a playlist, and the system continues playing songs without adapting to changes in the user’s state. However, in real life, human emotions are dynamic, multi-layered, and constantly evolving. A person may feel calm, sad, and relaxed at the same time, and these emotions can shift significantly within a short period. 
 
 Another challenge is that music recommendation is inherently subjective. Even if a system attempts to match a user’s mood, the recommended song may not always meet the user’s expectations. This creates a need for systems that can not only generate recommendations, but also adapt based on user feedback.
 
