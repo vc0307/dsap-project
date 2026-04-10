@@ -73,6 +73,17 @@ This algorithm converts subjective user input (such as emotions) into numerical 
 The system also uses **linear search** to evaluate each song and **sorting** to rank songs by relevance, ensuring that the most suitable recommendations are selected.
 These choices allow the system to efficiently organize data, process user input, and generate meaningful recommendations.
 
+### Evaluation of the System
+
+| Criteria | Success Condition |
+|---|---|
+| **Scoring correctness** | Given the same input, the system should always produce the same ranked output. A song with fully matching mood, activity, and energy should score higher than a song with no match. |
+| **Recommendation quality** | At least 2 of the top 3 recommended songs should directly overlap with the user’s input mood tags or activity context. |
+| **Feature completeness** | All core features should work end-to-end: input → scoring → ranking → display → like/skip → history → mood update → re-recommendation. |
+| **Data persistence** | After closing and restarting the program, recommendation history and liked songs should be restored correctly from the JSON file. |
+| **Mood update flow** | After the user updates their mood, the new recommendations should differ from the previous ones and better match the updated mood tags. |
+| **Edge case handling** | If the user enters an unrecognized mood or leaves a field blank, the system should show a clear prompt instead of crashing. |
+
 ## Prototype Report
 
 ### 目前進度
